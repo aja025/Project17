@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Project17.Data;
 
 namespace Project17
 {
@@ -15,6 +16,14 @@ namespace Project17
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+            var artist = new Artist
+            {
+                Name = "Testing2"
+            };
+
+            Console.WriteLine(artist.Name);
+
+        
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
