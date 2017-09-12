@@ -1,6 +1,8 @@
 var myApp = angular.module("myApp", [ "ui.router", "ngResource" ]);
 myApp.controller("MainController", MainController);
 myApp.controller("EmployeeController", EmployeeController);
+myApp.controller("GenreController", GenreController);
+myApp.service("$genreService", GenreService);
 myApp.service("$employeeService", EmployeeService);
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -14,6 +16,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: "/employees",
             templateUrl: "/ngApp/views/employees.html",
             controller: EmployeeController,
+            controllerAs: "controller"
+        }).state("genres", {
+            url: "/genres",
+            templateUrl: "/ngApp/views/genre.html",
+            controller: GenreController,
             controllerAs: "controller"
         });
 
