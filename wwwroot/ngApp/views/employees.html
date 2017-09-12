@@ -1,0 +1,168 @@
+<header class="w3-container w3-theme w3-card-2">
+    <h1>Employees View</h1>
+</header>
+
+<div ng-show="controller.employeeDetail" class="w3-container w3-padding w3-animate-top">
+    <div class="w3-card-4">
+        <header class="w3-container w3-green">
+            <h2>{{ controller.employeeDetail.lastName }}, {{ controller.employeeDetail.firstName }}</h2>
+        </header>
+
+        <div ng-show="controller.showSuccess" class="w3-container w3-animate-top">
+            <div class="w3-panel w3-card-4 w3-green w3-display-container">
+                <span ng-click="controller.resetMessages()" class="w3-button w3-green w3-large w3-display-topright">X</span>
+                <p>{{ controller.serverMessage }}</p>
+            </div>
+        </div>
+        
+        <div ng-show="controller.showError" class="w3-container w3-animate-top">
+            <div class="w3-panel w3-card-4 w3-red w3-display-container">
+                <span ng-click="controller.resetMessages()" class="w3-button w3-red w3-large w3-display-topright">X</span>
+                <p>{{ controller.serverMessage }}</p>
+            </div>
+        </div>
+
+        <form ng-submit="controller.saveEmployee()" class="w3-container">
+            <input ng-model="controller.employeeDetail.employeeId" class="w3-input w3-border w3-round" type="hidden">
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">First Name</label>                    
+                        <input ng-model="controller.employeeDetail.firstName" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Last Name</label>                    
+                        <input ng-model="controller.employeeDetail.lastName" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>
+                        <label class="w3-text-green">Email</label>                    
+                        <input ng-model="controller.employeeDetail.email" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Title</label>                    
+                        <input ng-model="controller.employeeDetail.title" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Birth Date</label>                    
+                        <input ng-model="controller.employeeDetail.birthDate" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Hire Date</label>                    
+                        <input ng-model="controller.employeeDetail.hireDate" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Phone</label>                    
+                        <input ng-model="controller.employeeDetail.phone" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Fax</label>                    
+                        <input ng-model="controller.employeeDetail.fax" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <label class="w3-text-green">Reports To</label>                    
+                        <input ng-model="controller.employeeDetail.reportsTo" class="w3-input w3-border w3-round" type="number" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <label class="w3-text-green">Address</label>                    
+                        <input ng-model="controller.employeeDetail.address" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <label class="w3-text-green">City</label>                    
+                        <input ng-model="controller.employeeDetail.city" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>           
+
+            <div class="w3-row-padding">
+                <div class="w3-col m4">
+                    <p>     
+                        <label class="w3-text-green">State</label>                    
+                        <input ng-model="controller.employeeDetail.state" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m4">
+                    <p>     
+                        <label class="w3-text-green">Postal Code</label>                    
+                        <input ng-model="controller.employeeDetail.postalCode" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m4">
+                    <p>     
+                        <label class="w3-text-green">Country</label>                    
+                        <input ng-model="controller.employeeDetail.country" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <input class="w3-btn w3-green" type="submit" value="Save">
+                        <button ng-click="controller.cancel()" class="w3-btn w3-green">Cancel</button>
+                    </p>
+                </div>
+            </div>   
+
+        </form>
+    </div>
+</div>
+
+<div class="w3-container w3-padding">
+    <button ng-click="controller.newEmployee()" class="w3-btn w3-green">New Employee</button>
+</div>
+
+<div class="w3-container w3-padding">
+    <table class="w3-table-all w3-hoverable w3-responsive w3-card-4">
+        <tr class="w3-green">
+            <th>Id</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="employee in controller.employees">
+            <td>{{ employee.employeeId }}</td>
+            <td>{{ employee.email }}</td>
+            <td><button class="w3-btn w3-green" ng-click="controller.getEmployee(employee.employeeId)">Details</button></td>
+            <td><button class="w3-btn w3-green" ng-click="controller.deleteEmployee(employee.employeeId)">Delete</button></td>
+        </tr>
+    </table>
+</div>

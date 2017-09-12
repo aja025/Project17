@@ -1,0 +1,38 @@
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project17</title>
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/w3-theme.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base href="/">
+</head>
+<body class="w3-theme-l5">
+    <div class="w3-bar w3-theme-d5">
+        <a ui-sref="home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Project17</a>
+        <a ui-sref="employees" class="w3-bar-item w3-button"><i class="fa fa-users"></i> Employees</a>
+    </div>
+
+    <ui-view></ui-view>
+    
+    <!-- Library Files -->
+    <script src="/libs/angular.min.js"></script>
+    <script src="/libs/angular-resource.min.js"></script>
+    <script src="/libs/angular-animate.min.js"></script>
+    <script src="/libs/angular-touch.min.js"></script>
+    <script src="/libs/angular-ui-router.min.js"></script>
+
+    <!-- controllers -->
+    <script src="/ngApp/controllers/mainController.js"></script>
+    <script src="/ngApp/controllers/employeeController.js"></script>
+    
+    <!-- services -->
+    <script src="/ngApp/services/employeeService.js"></script>
+
+    <script src="/ngApp/app.js"></script>
+
+</body>
+</html>
