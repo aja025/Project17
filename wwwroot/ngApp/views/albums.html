@@ -1,0 +1,168 @@
+<header class="w3-container w3-theme w3-card-2">
+    <h1>Albums View</h1>
+</header>
+
+<div ng-show="controller.albumDetail" class="w3-container w3-padding w3-animate-top">
+    <div class="w3-card-4">
+        <header class="w3-container w3-green">
+            <h2>{{ controller.albumDetail.lastName }}, {{ controller.albumDetail.firstName }}</h2>
+        </header>
+
+        <div ng-show="controller.showSuccess" class="w3-container w3-animate-top">
+            <div class="w3-panel w3-card-4 w3-green w3-display-container">
+                <span ng-click="controller.resetMessages()" class="w3-button w3-green w3-large w3-display-topright">X</span>
+                <p>{{ controller.serverMessage }}</p>
+            </div>
+        </div>
+        
+        <div ng-show="controller.showError" class="w3-container w3-animate-top">
+            <div class="w3-panel w3-card-4 w3-red w3-display-container">
+                <span ng-click="controller.resetMessages()" class="w3-button w3-red w3-large w3-display-topright">X</span>
+                <p>{{ controller.serverMessage }}</p>
+            </div>
+        </div>
+<!-- ******** Here is the form that shows all possible fields...****************-->
+        <form ng-submit="controller.saveAlbum()" class="w3-container">
+            <input ng-model="controller.albumDetail.albumId" class="w3-input w3-border w3-round" type="hidden">
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">First Name</label>                    
+                        <input ng-model="controller.albumDetail.firstName" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Last Name</label>                    
+                        <input ng-model="controller.albumDetail.lastName" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>
+                        <label class="w3-text-green">Email</label>                    
+                        <input ng-model="controller.albumDetail.email" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Title</label>                    
+                        <input ng-model="controller.albumDetail.title" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Birth Date</label>                    
+                        <input ng-model="controller.albumDetail.birthDate" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Hire Date</label>                    
+                        <input ng-model="controller.albumDetail.hireDate" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Phone</label>                    
+                        <input ng-model="controller.albumDetail.phone" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Fax</label>                    
+                        <input ng-model="controller.albumDetail.fax" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <label class="w3-text-green">Reports To</label>                    
+                        <input ng-model="controller.albumDetail.reportsTo" class="w3-input w3-border w3-round" type="number" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <label class="w3-text-green">Address</label>                    
+                        <input ng-model="controller.albumDetail.address" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <label class="w3-text-green">City</label>                    
+                        <input ng-model="controller.albumDetail.city" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>           
+
+            <div class="w3-row-padding">
+                <div class="w3-col m4">
+                    <p>     
+                        <label class="w3-text-green">State</label>                    
+                        <input ng-model="controller.albumDetail.state" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m4">
+                    <p>     
+                        <label class="w3-text-green">Postal Code</label>                    
+                        <input ng-model="controller.albumDetail.postalCode" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+                <div class="w3-col m4">
+                    <p>     
+                        <label class="w3-text-green">Country</label>                    
+                        <input ng-model="controller.albumDetail.country" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <input class="w3-btn w3-green" type="submit" value="Save">
+                        <button ng-click="controller.cancel()" class="w3-btn w3-green">Cancel</button>
+                    </p>
+                </div>
+            </div>   
+
+        </form>
+    </div>
+</div>
+<!-- ********** button and DISPLAY items in view***** -->
+<div class="w3-container w3-padding">
+    <button ng-click="controller.newAlbum()" class="w3-btn w3-green">New Album</button>
+</div>
+
+<div class="w3-container w3-padding">
+    <table class="w3-table-all w3-hoverable w3-responsive w3-card-4">
+        <tr class="w3-green">
+            <th>Id</th>
+            <th>**Title**</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="album in controller.albums">
+            <td>{{ album.albumId }}</td>
+            <td>{{ album.title }}</td>
+            <td><button class="w3-btn w3-green" ng-click="controller.getAlbum(album.albumId)">Details</button></td>
+            <td><button class="w3-btn w3-green" ng-click="controller.deleteAlbum(album.albumId)">Delete</button></td>
+        </tr>
+    </table>
+</div>

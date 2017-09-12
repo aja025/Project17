@@ -1,7 +1,10 @@
 var myApp = angular.module("myApp", [ "ui.router", "ngResource" ]);
 myApp.controller("MainController", MainController);
 myApp.controller("EmployeeController", EmployeeController);
+myApp.controller("AlbumController", AlbumController);
+myApp.service("$albumService", AlbumService);
 myApp.service("$employeeService", EmployeeService);
+
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
@@ -14,6 +17,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: "/employees",
             templateUrl: "/ngApp/views/employees.html",
             controller: EmployeeController,
+            controllerAs: "controller"
+        }).state("albums", {
+            url: "/albums",
+            templateUrl: "/ngApp/views/albums.html",
+            controller: AlbumController,
             controllerAs: "controller"
         });
 
