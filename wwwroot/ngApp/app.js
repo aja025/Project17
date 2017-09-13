@@ -3,7 +3,11 @@ myApp.controller("MainController", MainController);
 myApp.controller("EmployeeController", EmployeeController);
 myApp.controller("AlbumController", AlbumController);
 myApp.service("$albumService", AlbumService);
+myApp.controller("GenreController", GenreController);
+myApp.service("$genreService", GenreService);
+myApp.controller("ArtistController", ArtistController);
 myApp.service("$employeeService", EmployeeService);
+myApp.service("$artistService", ArtistService);
 
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -22,6 +26,16 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: "/albums",
             templateUrl: "/ngApp/views/albums.html",
             controller: AlbumController,
+            controllerAs: "controller"
+        }).state("genres", {
+            url: "/genres",
+            templateUrl: "/ngApp/views/genre.html",
+            controller: GenreController,
+            controllerAs: "controller"
+        }).state("artists", {
+            url: "/artists",
+            templateUrl: "/ngApp/views/artists.html",
+            controller: ArtistController,
             controllerAs: "controller"
         });
 
