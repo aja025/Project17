@@ -1,8 +1,9 @@
 var myApp = angular.module("myApp", [ "ui.router", "ngResource" ]);
 myApp.controller("MainController", MainController);
 myApp.controller("EmployeeController", EmployeeController);
+myApp.controller("GenreController", GenreController);
+myApp.service("$genreService", GenreService);
 myApp.controller("ArtistController", ArtistController);
-
 myApp.service("$employeeService", EmployeeService);
 myApp.service("$artistService", ArtistService);
 
@@ -18,6 +19,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: "/ngApp/views/employees.html",
             controller: EmployeeController,
             controllerAs: "controller"
+        }).state("genres", {
+            url: "/genres",
+            templateUrl: "/ngApp/views/genre.html",
+            controller: GenreController,
         }).state("artists", {
             url: "/artists",
             templateUrl: "/ngApp/views/artists.html",

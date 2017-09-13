@@ -1,0 +1,67 @@
+<header class="w3-container w3-theme w3-card-2">
+    <h1>Genre View</h1>
+</header>
+
+<div ng-show="controller.genreDetail" class="w3-container w3-padding w3-animate-top">
+    <div class="w3-card-4">
+        <header class="w3-container w3-green">
+            <h2>{{ controller.genreDetail.Name }}</h2>
+        </header>
+
+        <div ng-show="controller.showSuccess" class="w3-container w3-animate-top">
+            <div class="w3-panel w3-card-4 w3-green w3-display-container">
+                <span ng-click="controller.resetMessages()" class="w3-button w3-green w3-large w3-display-topright">X</span>
+                <p>{{ controller.serverMessage }}</p>
+            </div>
+        </div>
+        
+        <div ng-show="controller.showError" class="w3-container w3-animate-top">
+            <div class="w3-panel w3-card-4 w3-red w3-display-container">
+                <span ng-click="controller.resetMessages()" class="w3-button w3-red w3-large w3-display-topright">X</span>
+                <p>{{ controller.serverMessage }}</p>
+            </div>
+        </div>
+
+        <form ng-submit="controller.saveGenre()" class="w3-container">
+            <input ng-model="controller.genreDetail.genreId" class="w3-input w3-border w3-round" type="hidden">
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <p>     
+                        <label class="w3-text-green">Genre</label>                    
+                        <input ng-model="controller.genreDetail.name" class="w3-input w3-border w3-round" type="text" required>
+                    </p>
+                </div>
+            </div>            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <p>     
+                        <input class="w3-btn w3-green" type="submit" value="Save">
+                        <button ng-click="controller.cancel()" class="w3-btn w3-green">Cancel</button>
+                    </p>
+                </div>
+            </div>   
+        </form>
+    </div>
+</div>
+
+<div class="w3-container w3-padding">
+    <button ng-click="controller.newGenre()" class="w3-btn w3-green">New Genre</button>
+</div>
+
+<div class="w3-container w3-padding">
+    <table class="w3-table-all w3-hoverable w3-responsive w3-card-4">
+        <tr class="w3-green">
+            <th>Id</th>
+            <th>Genre</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="genre in controller.genres">
+            <td>{{ genre.genreId }}</td>
+            <td>{{ genre.name }}</td>
+            <td><button class="w3-btn w3-green" ng-click="controller.getGenre(genre.genreId)">Details</button></td>
+            <td><button class="w3-btn w3-green" ng-click="controller.deleteGenre(genre.genreId)">Delete</button></td>
+        </tr>
+    </table>
+</div>
